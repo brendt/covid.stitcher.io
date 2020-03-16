@@ -26,7 +26,7 @@ runComposer
 {{--generateAssets--}}
 updateSymlinks
 optimizeInstallation
-backupDatabase
+{{--backupDatabase--}}
 migrateDatabase
 blessNewRelease
 cleanOldReleases
