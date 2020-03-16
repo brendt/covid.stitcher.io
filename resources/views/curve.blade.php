@@ -30,24 +30,6 @@
             justify-content: center;
         }
 
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
         .links > a {
             color: #636b6f;
             padding: 0 25px;
@@ -56,10 +38,6 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
         }
     </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -98,6 +76,15 @@
 </script>
 <div class="full-height">
     <div id="curve"></div>
+
+    <div class="flex-center">
+        <p>
+            Data gathered from <a
+                href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series"
+                target="_blank" rel="noopener noreferrer"
+            >https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series</a>
+        </p>
+    </div>
 </div>
 </body>
 </html>
