@@ -22,8 +22,8 @@ return "echo '\033[32m" .$message. "\033[0m';\n";
 startDeployment
 cloneRepository
 runComposer
-runYarn
-generateAssets
+{{--runYarn--}}
+{{--generateAssets--}}
 updateSymlinks
 optimizeInstallation
 backupDatabase
