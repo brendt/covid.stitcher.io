@@ -129,9 +129,8 @@ cd {{ $newReleaseDir }}
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache
-php artisan livewire:discover
 
-sudo service php7.3-fpm restart
+sudo service php7.4-fpm restart
 sudo supervisorctl restart all
 @endtask
 
