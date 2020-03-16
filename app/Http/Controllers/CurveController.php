@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Day;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class CurveController
 {
-    public function __invoke(Request $request)
+    public function __invoke($country = null)
     {
-        $countryCode = $request->get('country', 'BE');
+        $countryCode = $country ?? 'BE';
 
         $days = Day::query()
             ->where('country_code', $countryCode)

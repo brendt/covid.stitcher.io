@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', CurveController::class);
+Route::get('/{country?}', CurveController::class);
