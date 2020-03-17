@@ -18,7 +18,12 @@
                 curveType: 'function',
                 width: '100%',
                 height: '630',
-                chartArea: {'width': '100%', 'height': '100%'},
+                chartArea: {
+                    left: '8%',
+                    top: '5%',
+                    width: '92%',
+                    height: '95%'
+                },
                 lineWidth: 4,
                 series: {
                     0: {color: '#1c91c0'},
@@ -31,13 +36,20 @@
                         min: 0
                     },
                     gridlines: {
-                        color: 'none'
+                        color: 'none',
+                        ticks: 2,
+                        count: 2,
                     },
-                    textPosition: 'none'
+                    textStyle: {
+                        color: '#333',
+                        fontSize: 20,
+                        bold: true,
+                    },
                 },
                 hAxis: {
                     textPosition: 'none'
                 },
+
                 legend: 'none'
             };
 
