@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Day;
 use App\Http\Resources\DayChartResource;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Spatie\Browsershot\Browsershot;
 
@@ -40,11 +41,13 @@ class MetaImageController
 
         $targetPath = storage_path("images/{$slug}.jpg");
 
-        Browsershot::html(
-            $view->render()
-        )
-            ->windowSize(1200, 630)
-            ->save($targetPath);
+        if (! Cache::has($targetPath) || !file_exists($targetPath)) {
+            Browsershot::html(
+                $view->render()
+            )->windowSize(1200, 630)->save($targetPath);
+
+            Cache::put($targetPath, true, 60 * 12);
+        }
 
         return response()->file($targetPath);
     }
