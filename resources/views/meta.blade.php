@@ -2,10 +2,23 @@
     'chartData' => $chartData,
     'country' => $country
 ])
-
     @slot('head')
-        <meta name="twitter:card" content="summary">
-        <meta property="twitter:image" content="{{ action(\App\Http\Controllers\MetaImageController::class, $country) }}">
+        <style>
+            h1 {
+                position: absolute;
+                top: 3rem;
+                left: 190px;
+                z-index: 999;
+            }
+
+            #curve {
+                margin-top: 2rem;
+            }
+
+            body {
+                overflow: hidden;
+            }
+        </style>
     @endslot
 
     <script type="text/javascript">
@@ -16,12 +29,10 @@
             var data = google.visualization.arrayToDataTable({!! $chartData !!});
 
             var options = {
-                title: 'Corona cases in {{ $country }}',
                 curveType: 'function',
-                legend: {position: 'bottom'},
                 width: '100%',
-                height: '800',
-                lineWidth: 3,
+                height: '600',
+                lineWidth: 4,
                 series: {
                     0: {color: '#1c91c0'},
                     1: {color: '#e2431e'},
@@ -31,8 +42,16 @@
                     viewWindowMode: 'explicit',
                     viewWindow: {
                         min: 0
-                    }
-                }
+                    },
+                    gridlines: {
+                        color: '#ddd'
+                    },
+                    textPosition: 'none'
+                },
+                hAxis: {
+                    textPosition: 'none'
+                },
+                legend: 'none'
             };
 
             var chart = new google.visualization.AreaChart(document.getElementById('curve'));
@@ -40,17 +59,11 @@
             chart.draw(data, options);
         }
     </script>
-
     <div class="full-height">
-        <div id="curve"></div>
-
-        <div class="flex-center">
-            <p>
-                Data gathered from <a
-                    href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series"
-                    target="_blank" rel="noopener noreferrer"
-                >https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series</a>
-            </p>
+        <div>
+            <h1>Corona cases in {{ $country }}</h1>
         </div>
+
+        <div id="curve"></div>
     </div>
 @endcomponent

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Day extends Model
@@ -14,4 +15,15 @@ class Day extends Model
         'deaths' => 'integer',
         'recovered' => 'integer',
     ];
+
+    public function scopeWhereCountry(Builder $builder, string $country): Builder
+    {
+        if (strlen($country) === 2) {
+            $builder->where('country_code', $country);
+        } else {
+            $builder->where('country', $country);
+        }
+
+        return $builder;
+    }
 }

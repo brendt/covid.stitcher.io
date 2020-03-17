@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CurveController;
+use App\Http\Controllers\MetaImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/{country?}', CurveController::class);
+Route::get('/image/{country?}', MetaImageController::class);

@@ -9,12 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "ext-json": "*",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "ext-json" : "*"
+        "spatie/browsershot": "^3.35"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
