@@ -4,20 +4,6 @@
 ])
     @slot('head')
         <style>
-            h1 {
-                position: absolute;
-                top: 3rem;
-                left: 190px;
-                z-index: 999;
-            }
-
-            #curve {
-                margin-top: 2rem;
-            }
-
-            body {
-                overflow: hidden;
-            }
         </style>
     @endslot
 
@@ -31,7 +17,8 @@
             var options = {
                 curveType: 'function',
                 width: '100%',
-                height: '600',
+                height: '630',
+                chartArea: {'width': '100%', 'height': '100%'},
                 lineWidth: 4,
                 series: {
                     0: {color: '#1c91c0'},
@@ -44,7 +31,7 @@
                         min: 0
                     },
                     gridlines: {
-                        color: '#ddd'
+                        color: 'none'
                     },
                     textPosition: 'none'
                 },
@@ -59,11 +46,5 @@
             chart.draw(data, options);
         }
     </script>
-    <div class="full-height">
-        <div>
-            <h1>Corona cases in {{ $country }}</h1>
-        </div>
-
-        <div id="curve"></div>
-    </div>
+    <div id="curve"></div>
 @endcomponent
