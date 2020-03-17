@@ -4,7 +4,9 @@
 ])
 
     @slot('head')
-        <meta name="twitter:card" content="summary">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:creator" content="@bendt_gd">
+        <meta name="twitter:title" content="Corona cases in {{ $country }}">
         <meta property="twitter:image" content="{{ action(\App\Http\Controllers\MetaImageController::class, $country) }}">
     @endslot
 
