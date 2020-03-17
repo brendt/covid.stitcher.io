@@ -8,13 +8,19 @@ class CurveController
 {
     public function __invoke($country = null)
     {
-        $countryCode = $country ?? 'BE';
+        $country = $country ?? 'BE';
 
-        $days = Day::query()
-            ->where('country_code', $countryCode)
+        $query = Day::query()
             ->where('confirmed', '>', 0)
-            ->orderBy('date')
-            ->get();
+            ->orderBy('date');
+
+        if (strlen($country) === 2) {
+            $query->where('country_code', $country);
+        } else {
+            $query->where('country', $country);
+        }
+
+        $days = $query->get();
 
         $chartData = json_encode([
             ['Day (d/m/Y)', 'Confirmed', 'Deaths', 'Recovered'],
