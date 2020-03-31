@@ -26,4 +26,9 @@ class Day extends Model
 
         return $builder;
     }
+
+    public function getOngoingAttribute(): int
+    {
+        return ($this->confirmed ?? 0) - (($this->deaths ?? 0) + ($this->recovered ?? 0));
+    }
 }

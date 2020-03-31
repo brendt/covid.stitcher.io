@@ -12,14 +12,14 @@ class DayChartResource extends JsonResource
 
     public function toArray($request)
     {
-        $headers = ['Day (d/m/Y)', 'Confirmed', 'Deaths', 'Recovered'];
+        $headers = ['Day (d/m/Y)', 'Deaths', 'Recovered', 'Ongoing'];
 
         $rows = $this->resource->map(function (Day $day) {
             return [
                 $day->date->format('d/m/Y'),
-                $day->confirmed ?? 0,
                 $day->deaths ?? 0,
                 $day->recovered ?? 0,
+                $day->ongoing ?? 0,
             ];
         });
 
