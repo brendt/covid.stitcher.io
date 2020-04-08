@@ -25,10 +25,11 @@
                     height: '95%'
                 },
                 lineWidth: 4,
+                isStacked: true,
                 series: {
-                    0: {color: '#1c91c0'},
-                    1: {color: '#e2431e'},
-                    2: {color: '#6f9654'},
+                    2: {color: '#1c91c0'},
+                    0: {color: '#e2431e'},
+                    1: {color: '#6f9654'},
                 },
                 vAxis: {
                     viewWindowMode: 'explicit',
